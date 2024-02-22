@@ -1,3 +1,5 @@
+#bash script that starts the database service then runs the project
+
 #!/bin/bash
 
 if ! systemctl is-active --quiet mariadb; then
