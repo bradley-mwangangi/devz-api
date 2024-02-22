@@ -1,0 +1,40 @@
+# Database Configuration
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/devz
+    username: root
+    password: mydbpassword
+    driver-class-name: org.mariadb.jdbc.Driver
+
+  #JPA Configuration
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+
+# Spring Server setup
+server:
+  address: 127.0.0.1
+  port: 8080
+  compression:
+    enabled: true
+  http2:
+    enabled: true
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: on_param
+    include-exception: false
+
+# remove these in production. set as environment variables/secrets
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 86400000 # a day
+      refresh-token:
+        expiration: 604800000 # 7 days
+##################################################################################
+
+upload:
+  path: ./uploads
